@@ -5,14 +5,10 @@
   tasks:
     - name: Fetch files from the remote server
       synchronize:
-        src:  /var/lib/jenkins/playbook/CICD-Ansible-Docker-Git/
+        src:  /var/lib/jenkins/workspace/myjob-cicd
         dest: /root/project/
         mode: pull
-
-- hosts: all
-  gather_facts: false
-  remote_user: root
-  tasks:
+        
     - name: Stop and remove the container
       block:
         - name: Stopping the container
