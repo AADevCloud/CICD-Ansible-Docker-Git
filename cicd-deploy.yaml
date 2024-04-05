@@ -1,7 +1,7 @@
 ---
 - hosts: all
   gather_facts: false
-  remote_user: root
+  remote_user: jenkins
   tasks:
 
     - name: Stop the container if running
@@ -27,7 +27,7 @@
         name: nginx_image:v1
         source: build
         build:
-          path: /root/project/
+          path: /home/jenkins/project/
         state: present
 
     - name: Create and start the container
